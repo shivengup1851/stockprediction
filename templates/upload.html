@@ -1,0 +1,45 @@
+{% extends "public.html" %}
+
+{% block title %}Stock Predictions{% endblock %}
+
+{% block main %}
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Stock Predictions</h1>
+      <hr>
+        <p style = "color : #787878;">This tool predicts the price trend for the next 30 days of a certain stock through an LSTM. I plan on making this a hub for beginner investors, adding access to resources and news that could help new traders. Please enjoy, and reach out with any questions, concerns, or suggestions.</p>
+        <form method="post" action="/" enctype="multipart/form-data" style="margin-bottom: 3em">
+          <div class="form-group">
+            <label for="ticker">Enter Stock Ticker:</label>
+            <input type="ticker" name="ticker" class="form-control" placeholder="ex. AAPL, MSFT, etc." required>
+          </div>
+          <div>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+          </div>
+          <div>
+            <button type="submit" class="btn btn-success btn-ladda-progress" data-style="expand-right">Submit</button>
+          </div>
+        </form>
+        <p>{{ name }}</p>
+        <div>
+          <img src={{ url}}>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
