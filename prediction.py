@@ -84,7 +84,7 @@ def predict_stock():
     train_predict = scaler.inverse_transform(train_predict)
     test_predict = scaler.inverse_transform(test_predict)
 
-    x_input = test_data[341:].reshape(1,-1)
+    x_input = test_data[340:].reshape(1,-1)
 
     temp_input = list(x_input)
     temp_input = temp_input[0].tolist()
